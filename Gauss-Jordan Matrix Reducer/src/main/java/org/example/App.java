@@ -35,10 +35,14 @@ public class App
     }
 
     public static int getRowSmallestCommonMultiple(int[] row){
-        //TODO
+        int result = row[0];
+        for(int number : row){
+            if(result == 1)
+                break;
+            result = smallestCommonMultiple(result, number);
+        }
 
-
-        return 0;
+        return result;
     }
 
     public static void swapRowsInMatrix(int[][] matrix, int rowA, int rowB){
