@@ -6,9 +6,44 @@ package org.example;
  */
 public class App 
 {
-    public static void main( String[] args ){
+    private static int[][] testMatrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+
+    public static void main( String[] args )
+    {
         System.out.println( "Hello World!" );
+        GaussJordanReductionAlgorithm(testMatrix);
+        showMatrix(testMatrix);
     }
+
+    public static void GaussJordanReductionAlgorithm(int[][] matrix){
+        //TODO
+
+
+    }
+
+    public static void DivideEveryRowBySmallestCommonMultiple(int[][] matrix){
+        for(int[] row : matrix){
+            DivideRowBySmallestCommonMultiple(row);
+        }
+    }
+
+    public static void DivideRowBySmallestCommonMultiple(int[] row){
+        //TODO
+    }
+
+    public static int getRowSmallestCommonMultiple(int[] row){
+        //TODO
+
+
+        return 0;
+    }
+
+    public static void swapRowsInMatrix(int[][] matrix, int rowA, int rowB){
+        int[] tempRow = matrix[rowA];
+        matrix[rowA] = matrix[rowB];
+        matrix[rowB] = tempRow;
+    }
+
 
     //Code taken from https://www.baeldung.com/java-least-common-multiple
     private static int smallestCommonMultiple(int number1, int number2) {
