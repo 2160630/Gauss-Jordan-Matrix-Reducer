@@ -39,6 +39,8 @@ public class App
         for(int number : row){
             if(result == 1)
                 break;
+            if(number == 0)
+                continue;
             result = smallestCommonMultiple(result, number);
         }
 
