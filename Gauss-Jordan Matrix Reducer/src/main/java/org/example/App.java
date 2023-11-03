@@ -28,7 +28,10 @@ public class App
     }
 
     public static void DivideRowBySmallestCommonMultiple(int[] row){
-        //TODO
+        int smallestCommonMultiple = getRowSmallestCommonMultiple(row);
+        for(int i = 0; i < row.length; i++){
+            row[i] /= smallestCommonMultiple;
+        }
     }
 
     public static int getRowSmallestCommonMultiple(int[] row){
