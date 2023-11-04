@@ -21,9 +21,9 @@ public class App
 
     }
 
-    public static void DivideEveryRowBySmallestCommonMultiple(int[][] matrix){
+    public static void DivideEveryRowByGreatestCommonDivisor(int[][] matrix){
         for(int[] row : matrix){
-            DivideRowBySmallestCommonMultiple(row);
+            DivideRowByGreatestCommonDivisor(row);
         }
     }
 
