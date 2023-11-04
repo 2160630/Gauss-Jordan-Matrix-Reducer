@@ -16,7 +16,44 @@ public class App
     }
 
     public static void GaussJordanReductionAlgorithm(int[][] matrix){
-        //TODO
+        if(matrix.length == 0 || matrix[0].length == 0) return;
+
+        final int ROW_COUNT = matrix.length;
+        final int COLUMN_COUNT = matrix[0].length;
+        final int DIAGONAL_COUNT = Math.min(ROW_COUNT, COLUMN_COUNT);
+
+
+
+        for(int pivotRowIndex = 0, pivotColumnIndex = 0; pivotRowIndex < ROW_COUNT && pivotColumnIndex < COLUMN_COUNT; pivotRowIndex++, pivotColumnIndex++){
+            //Divide rows by greatest common divisor
+            DivideEveryRowByGreatestCommonDivisor(matrix);
+
+            //Get a non-zero pivot row
+            for(int otherRowIndex = pivotRowIndex + 1; otherRowIndex < ROW_COUNT && matrix[pivotRowIndex][pivotColumnIndex] == 0; otherRowIndex++){
+                swapRowsInMatrix(matrix, pivotRowIndex, otherRowIndex);
+            }
+            if(matrix[pivotRowIndex][pivotColumnIndex] == 0){
+                pivotRowIndex--;
+                continue;
+            }
+
+            //Reduction
+            for(int otherRowIndex = 0; otherRowIndex < pivotRowIndex; otherRowIndex++){
+                ReduceRow(matrix[pivotRowIndex], matrix[otherRowIndex], pivotColumnIndex);
+            }
+            for(int otherRowIndex = pivotRowIndex + 1; otherRowIndex < ROW_COUNT; otherRowIndex++){
+                ReduceRow(matrix[pivotRowIndex], matrix[otherRowIndex], pivotColumnIndex);
+            }
+
+        }
+
+
+
+        //Divide rows by greatest common divisor
+        DivideEveryRowByGreatestCommonDivisor(matrix);
+
+
+
 
 
     }
