@@ -27,10 +27,10 @@ public class App
         }
     }
 
-    public static void DivideRowBySmallestCommonMultiple(int[] row){
-        int smallestCommonMultiple = getRowSmallestCommonMultiple(row);
+    public static void DivideRowByGreatestCommonDivisor(int[] row){
+        int greatestCommonDivisor = getRowGreatestCommonDivisor(row);
         for(int i = 0; i < row.length; i++){
-            row[i] /= smallestCommonMultiple;
+            row[i] /= greatestCommonDivisor;
         }
     }
 
