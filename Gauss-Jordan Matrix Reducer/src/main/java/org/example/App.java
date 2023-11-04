@@ -47,10 +47,10 @@ public class App
         return result;
     }
 
-    public static void swapRowsInMatrix(int[][] matrix, int rowA, int rowB){
-        int[] tempRow = matrix[rowA];
-        matrix[rowA] = matrix[rowB];
-        matrix[rowB] = tempRow;
+    public static void swapRowsInMatrix(int[][] matrix, int indexRowA, int indexRowB){
+        int[] tempRow = matrix[indexRowA];
+        matrix[indexRowA] = matrix[indexRowB];
+        matrix[indexRowB] = tempRow;
     }
 
 
