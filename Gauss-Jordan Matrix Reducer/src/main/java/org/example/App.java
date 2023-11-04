@@ -34,14 +34,23 @@ public class App
         }
     }
 
-    public static int getRowSmallestCommonMultiple(int[] row){
-        int result = row[0];
-        for(int number : row){
+    public static int getRowGreatestCommonDivisor(int[] row){
+        int result = 0;
+        int indexOfFirstNonZeroElement = -1;
+        for(int i = 0; i < row.length; i++){
+            if(row[i] == 0)
+                continue;
             if(result == 1)
                 break;
-            if(number == 0)
-                continue;
-            result = smallestCommonMultiple(result, number);
+            if(indexOfFirstNonZeroElement == -1)
+                indexOfFirstNonZeroElement = i;
+            result = (result == 0) ? row[i] : greatestCommonDivisor(result, row[i]);
+        }
+
+        if(result == 0)
+            result = 1;
+        if(indexOfFirstNonZeroElement != -1 && row[indexOfFirstNonZeroElement] < 0){
+            result = -result;
         }
 
         return result;
