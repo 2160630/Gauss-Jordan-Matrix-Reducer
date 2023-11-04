@@ -21,6 +21,13 @@ public class App
 
     }
 
+    public static void ReduceRow(final int[] pivotRow, int[] reducedRow, int columnIndex){
+        for(int i = pivotRow.length - 1; i >= columnIndex; i--){
+            reducedRow[i] = (pivotRow[columnIndex] * reducedRow[i])
+                    - (pivotRow[i] * reducedRow[columnIndex]);
+        }
+    }
+
     public static void DivideEveryRowByGreatestCommonDivisor(int[][] matrix){
         for(int[] row : matrix){
             DivideRowByGreatestCommonDivisor(row);
