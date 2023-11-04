@@ -69,17 +69,6 @@ public class App
         matrix[indexRowB] = tempRow;
     }
 
-
-    //Code taken from https://www.baeldung.com/java-least-common-multiple
-    private static int smallestCommonMultiple(int number1, int number2) {
-        if (number1 == 0 || number2 == 0)
-            return 0;
-        else {
-            int gcd = greatestCommonDivisor(number1, number2);
-            return Math.abs(number1 * number2) / gcd;
-        }
-    }
-
     //Code taken from https://www.baeldung.com/java-least-common-multiple
     private static int greatestCommonDivisor(int number1, int number2){
         if (number1 == 0 || number2 == 0) {
