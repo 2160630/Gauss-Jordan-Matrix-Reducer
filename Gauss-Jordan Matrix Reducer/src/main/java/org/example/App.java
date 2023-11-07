@@ -6,7 +6,10 @@ package org.example;
  */
 public class App 
 {
-    private static int[][] testMatrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+    private static int[][] testMatrix = {
+            {1, 3, 1, 0},
+            {-1, 4, 0, 1}
+    };
 
     public static void main( String[] args )
     {
@@ -27,6 +30,8 @@ public class App
         for(int pivotRowIndex = 0, pivotColumnIndex = 0; pivotRowIndex < ROW_COUNT && pivotColumnIndex < COLUMN_COUNT; pivotRowIndex++, pivotColumnIndex++){
             //Divide rows by greatest common divisor
             DivideEveryRowByGreatestCommonDivisor(matrix);
+            showMatrix(matrix);
+            System.out.println();
 
             //Get a non-zero pivot row
             for(int otherRowIndex = pivotRowIndex + 1; otherRowIndex < ROW_COUNT && matrix[pivotRowIndex][pivotColumnIndex] == 0; otherRowIndex++){
@@ -59,7 +64,7 @@ public class App
     }
 
     public static void ReduceRow(final int[] pivotRow, int[] reducedRow, int columnIndex){
-        for(int i = pivotRow.length - 1; i >= columnIndex; i--){
+        for(int i = pivotRow.length - 1; i >= 0; i--){
             reducedRow[i] = (pivotRow[columnIndex] * reducedRow[i])
                     - (pivotRow[i] * reducedRow[columnIndex]);
         }
